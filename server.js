@@ -13,7 +13,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 const db = require("./app/models");
-db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync({ force: true }).then(() => {//to drop existing tables and re-sync database
     console.log("Drop and re-sync db.");
   });
 

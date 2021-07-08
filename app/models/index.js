@@ -21,12 +21,15 @@ db.sequelize = sequelize;
 
 db.products = require("./product.model.js")(sequelize, Sequelize);
 db.suppliers = require("./supplier.model.js")(sequelize, Sequelize);
+db.users = require("./user.model.js")(sequelize, Sequelize);
 
 db.suppliers.hasMany(db.products, { as: "products" });
 db.products.belongsTo(db.suppliers, {
   foreignKey: "supplierId",
   as: "supplier",
 });
+
+// db.suppliers.belongsTo(db.users);
 
 
 module.exports = db;
